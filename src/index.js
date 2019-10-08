@@ -16,7 +16,5 @@ b2cauth.initialize({
   postLogoutRedirectUri: window.location.origin
 });
 
-b2cauth.run(() => {
-  ReactDOM.render(<LoginComponent />, document.getElementById("root"));
-  serviceWorker.unregister();
-});
+ReactDOM.render(<LoginComponent />, document.getElementById("root"));
+serviceWorker.unregister();
