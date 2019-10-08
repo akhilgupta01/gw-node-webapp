@@ -12,7 +12,7 @@ b2cauth.initialize({
   applicationId: "77d19cac-e013-4cf4-9e33-64a0ab29fbbe",
   cacheLocation: "sessionStorage",
   scopes: ["https://dbgreenworld.onmicrosoft.com/api/user_impersonation"],
-  redirectUri: "http://localhost:3000",
+  redirectUri: "https://gw-web-app.azurewebsites.net/",
   postLogoutRedirectUri: window.location.origin
 });
 
