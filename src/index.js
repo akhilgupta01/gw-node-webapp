@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import LoginComponent from "./components/loginComponent";
+import App from "./App";
 
-ReactDOM.render(<LoginComponent />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
 serviceWorker.unregister();
