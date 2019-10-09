@@ -30,19 +30,20 @@ class UserForm extends Component {
   };
 
   componentDidMount() {
-    fetch("/.auth/me")
+    const userForm = this;
+    fetch("./me.json")
       .then(res => res.json())
       .then(
         result => {
           result[0].user_claims.forEach(function(claimItem) {
             if (claimItem.typ.endsWith("emailaddress")) {
-              this.setState({ email: claimItem.val });
+              userForm.setState({ email: claimItem.val });
             }
             if (claimItem.typ.endsWith("givenname")) {
-              this.setState({ firstName: claimItem.val });
+              userForm.setState({ firstName: claimItem.val });
             }
             if (claimItem.typ.endsWith("surname")) {
-              this.setState({ lastName: claimItem.val });
+              userForm.setState({ lastName: claimItem.val });
             }
           });
         },

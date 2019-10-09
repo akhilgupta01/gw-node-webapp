@@ -22,21 +22,24 @@ class BasicProfile extends Component {
             hintText="Enter your first name"
             floatingLabelText="First Name"
             onChange={handleChange("firstName")}
-            defaultValue={values.firstName}
+            value={values.firstName}
+            disabled={values.firstName === "" ? false : true}
           />
           <br />
           <TextField
             hintText="Enter your last name"
             floatingLabelText="Last Name"
             onChange={handleChange("lastName")}
-            defaultValue={values.lastName}
+            value={values.lastName}
+            disabled={values.lastName === "" ? false : true}
           />
           <br />
           <TextField
             hintText="Enter your email"
             floatingLabelText="Email"
             onChange={handleChange("email")}
-            defaultValue={values.email}
+            value={values.email}
+            disabled={values.lastName === "" ? false : true}
           />
           <br />
           <RaisedButton
