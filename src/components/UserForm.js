@@ -31,7 +31,7 @@ class UserForm extends Component {
 
   componentDidMount() {
     const userForm = this;
-    fetch("./me.json")
+    fetch("/.auth/me")
       .then(res => res.json())
       .then(
         result => {
