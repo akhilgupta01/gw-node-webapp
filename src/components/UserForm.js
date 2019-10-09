@@ -29,6 +29,32 @@ class UserForm extends Component {
     this.setState({ [input]: e.target.value });
   };
 
+  componentDidMount() {
+    fetch("/.auth/me")
+      .then(res => res.json())
+      .then(
+        result => {
+          result[0].user_claims.forEach(function(claimItem) {
+            if (claimItem.typ.endsWith("emailaddress")) {
+              this.setState({ email: claimItem.val });
+            }
+            if (claimItem.typ.endsWith("givenname")) {
+              this.setState({ firstName: claimItem.val });
+            }
+            if (claimItem.typ.endsWith("surname")) {
+              this.setState({ lastName: claimItem.val });
+            }
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          alert("error2 " + error);
+        }
+      );
+  }
+
   render() {
     const { step } = this.state;
     const { firstName, lastName, email, mobileNumber } = this.state;
